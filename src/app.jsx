@@ -1,6 +1,4 @@
 var React = require('react');
-require('./a.css');
-
 
 var App = React.createClass({
     getInitialState: function() {
