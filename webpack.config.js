@@ -23,7 +23,16 @@ module.exports = {
             {
                 test   : /\.jsx$/,
                 loaders: ['react-hot', 'jsx?harmony'],
+                exclude: /node_modules/,
                 include: path.join(__dirname, 'src')
+            },
+            {
+                test: /\.css/,
+                loader: 'style-loader!css-loader!autoprefixer-loader'
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'url-loader?limit=8192'
             }
         ]
     },
