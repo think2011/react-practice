@@ -22,17 +22,21 @@ module.exports = {
         loaders: [
             {
                 test   : /\.jsx$/,
-                loaders: ['react-hot', 'jsx?harmony'],
-                exclude: /node_modules/,
+                loaders: ['react-hot', 'babel'],
+                exclude: /(node_modules|bower_components)/,
                 include: path.join(__dirname, 'src')
             },
             {
-                test: /\.css/,
-                loader: 'style-loader!css-loader!autoprefixer-loader'
+                test  : /\.css/,
+                loader: 'style!css!autoprefixer'
             },
             {
-                test: /\.(png|jpg)$/,
-                loader: 'url-loader?limit=8192'
+                test  : /\.less$/,
+                loader: "style!css!less"
+            },
+            {
+                test  : /\.(png|jpg)$/,
+                loader: 'url?limit=8192'
             }
         ]
     },
