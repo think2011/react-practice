@@ -1,22 +1,24 @@
 var webpack          = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
+var config           = require('./webpack.config');
 var exec             = require('child_process').exec;
 
-var config = require('./webpack.config');
 
 var port = 3000;
 var ip   = 'localhost';
 
 new WebpackDevServer(webpack(config), {
     publicPath        : config.output.publicPath,
-    historyApiFallback: true,
     hot               : true,
-    stats             : {colors: true}
-}).listen(port, ip, function (err) {
-        if (err) {
-            return console.log(err);
-        }
+    historyApiFallback: true,
+    stats             : {
+        colors: true
+    }
+}).listen(port, ip, function (err, result) {
+    if (err) {
+        console.log(err);
+    }
 
-        console.log('Listening at ' + ip + ':' + port);
-        exec(`open http://${ip}:${port}`);
-    });
+    console.log('Listening at localhost:3000');
+    exec(`open http://${ip}:${port}`);
+});
