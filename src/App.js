@@ -21,12 +21,12 @@ class App extends Component {
         $.ajax({
             url     : 'http://api.douban.com/v2/movie/top250',
             dataType: 'jsonp'
-        }).then(function (rst) {
+        }).then((rst) => {
             that.setState({
                 loading: false,
                 data   : rst
             });
-        })
+        });
     }
 
     render () {
@@ -41,7 +41,7 @@ class App extends Component {
         }
 
         if (!state.loading) {
-            var list = state.data && state.data.subjects.map((v, k) => {
+            let list = state.data && state.data.subjects.map((v, k) => {
                     return <div id={k} key={k}>{v.title}</div>;
                 });
 
