@@ -1,3 +1,4 @@
+require("babel-polyfill");
 import './index.css';
 
 import React from 'react';
